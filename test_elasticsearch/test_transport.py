@@ -2,10 +2,10 @@
 from __future__ import unicode_literals
 import time
 
-from elasticsearch.transport import Transport, get_host_info
-from elasticsearch.connection import Connection
-from elasticsearch.connection_pool import DummyConnectionPool
-from elasticsearch.exceptions import ConnectionError, ImproperlyConfigured
+from elasticsearch6.transport import Transport, get_host_info
+from elasticsearch6.connection import Connection
+from elasticsearch6.connection_pool import DummyConnectionPool
+from elasticsearch6.exceptions import ConnectionError, ImproperlyConfigured
 
 from .test_cases import TestCase
 
@@ -29,7 +29,7 @@ CLUSTER_NODES = '''{
     "successful" : 1,
     "failed" : 0
   },
-  "cluster_name" : "elasticsearch",
+  "cluster_name" : "elasticsearch6",
   "nodes" : {
     "SRZpKFZdQguhhvifmN6UVA" : {
       "name" : "SRZpKFZ",

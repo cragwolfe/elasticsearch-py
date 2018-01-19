@@ -10,9 +10,9 @@ import argparse
 
 import git
 
-from elasticsearch import Elasticsearch
-from elasticsearch.exceptions import TransportError
-from elasticsearch.helpers import bulk, streaming_bulk
+from elasticsearch6 import Elasticsearch
+from elasticsearch6.exceptions import TransportError
+from elasticsearch6.helpers import bulk, streaming_bulk
 
 def create_git_index(client, index):
     # we will use user on several places
@@ -101,7 +101,7 @@ def parse_commits(head, name):
 
 def load_repo(client, path=None, index='git'):
     """
-    Parse a git repository with all it's commits and load it into elasticsearch
+    Parse a git repository with all it's commits and load it into elasticsearch6
     using `client`. If the index doesn't exist it will be created.
     """
     path = dirname(dirname(abspath(__file__))) if path is None else path
@@ -148,7 +148,7 @@ UPDATES = [
 
 if __name__ == '__main__':
     # get trace logger and set level
-    tracer = logging.getLogger('elasticsearch.trace')
+    tracer = logging.getLogger('elasticsearch6.trace')
     tracer.setLevel(logging.INFO)
     tracer.addHandler(logging.FileHandler('/tmp/es_trace.log'))
 
@@ -157,7 +157,7 @@ if __name__ == '__main__':
         "-H", "--host",
         action="store",
         default="localhost:9200",
-        help="The elasticsearch host you wish to connect too. (Default: localhost:9200)")
+        help="The elasticsearch6 host you wish to connect too. (Default: localhost:9200)")
     parser.add_argument(
         "-p", "--path",
         action="store",

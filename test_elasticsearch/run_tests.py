@@ -20,7 +20,7 @@ def fetch_es_repo():
 
     # no repo
     if not exists(repo_path) or not exists(join(repo_path, '.git')):
-        print('No elasticsearch repo found...')
+        print('No elasticsearch6 repo found...')
         # set YAML DIR to empty to skip yaml tests
         environ['TEST_ES_YAML_DIR'] = ''
         return
@@ -40,11 +40,11 @@ def fetch_es_repo():
         es = get_client()
         sha = es.info()['version']['build_hash']
     except (SkipTest, KeyError):
-        print('No running elasticsearch >1.X server...')
+        print('No running elasticsearch6 >1.X server...')
         return
 
     # fetch new commits to be sure...
-    print('Fetching elasticsearch repo...')
+    print('Fetching elasticsearch6 repo...')
     subprocess.check_call('cd %s && git fetch https://github.com/elasticsearch/elasticsearch.git' % repo_path, shell=True)
     # reset to the version fron info()
     subprocess.check_call('cd %s && git reset --hard %s' % (repo_path, sha), shell=True)
@@ -59,8 +59,8 @@ def run_all(argv=None):
     if argv is None:
         argv = [
             'nosetests', '--with-xunit',
-            '--with-xcoverage', '--cover-package=elasticsearch', '--cover-erase',
-            '--logging-filter=elasticsearch', '--logging-level=DEBUG',
+            '--with-xcoverage', '--cover-package=elasticsearch6', '--cover-erase',
+            '--logging-filter=elasticsearch6', '--logging-level=DEBUG',
             '--verbose', '--with-id',
         ]
 

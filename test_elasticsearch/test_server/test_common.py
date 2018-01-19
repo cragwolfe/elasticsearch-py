@@ -9,9 +9,9 @@ from os.path import exists, join, dirname, pardir
 import yaml
 from shutil import rmtree
 
-from elasticsearch import TransportError
-from elasticsearch.compat import string_types
-from elasticsearch.helpers.test import _get_version
+from elasticsearch6 import TransportError
+from elasticsearch6.compat import string_types
+from elasticsearch6.helpers.test import _get_version
 
 from ..test_cases import SkipTest
 from . import ElasticsearchTestCase
@@ -291,7 +291,7 @@ YAML_DIR = environ.get(
     'TEST_ES_YAML_DIR',
     join(
         dirname(__file__), pardir, pardir, pardir,
-        'elasticsearch', 'rest-api-spec', 'src', 'main', 'resources', 'rest-api-spec', 'test'
+        'elasticsearch6', 'rest-api-spec', 'src', 'main', 'resources', 'rest-api-spec', 'test'
     )
 )
 

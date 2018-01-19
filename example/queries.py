@@ -4,7 +4,7 @@ from __future__ import print_function
 import logging
 from dateutil.parser import parse as parse_date
 
-from elasticsearch import Elasticsearch
+from elasticsearch6 import Elasticsearch
 
 def print_search_stats(results):
     print('=' * 80)
@@ -26,7 +26,7 @@ def print_hits(results):
     print()
 
 # get trace logger and set level
-tracer = logging.getLogger('elasticsearch.trace')
+tracer = logging.getLogger('elasticsearch6.trace')
 tracer.setLevel(logging.INFO)
 tracer.addHandler(logging.FileHandler('/tmp/es_trace.log'))
 # instantiate es client, connects to localhost:9200 by default
@@ -46,7 +46,7 @@ result = es.search(
             'match': {'description': 'fix'}
           },
           'must_not': {
-            'term': {'files': 'test_elasticsearch'}
+            'term': {'files': 'test_elasticsearch6'}
           }
         }
       }
