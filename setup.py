@@ -1,3 +1,9 @@
+"""elasticsearch6
+
+Identical to elasticsearch 6.1.1 except the module is "elasticsearch6"
+rather than "elasticsearch".
+"""
+
 # -*- coding: utf-8 -*-
 from os.path import join, dirname
 from setuptools import setup, find_packages
@@ -34,8 +40,8 @@ setup(
     url = "https://github.com/elastic/elasticsearch-py",
     long_description = long_description,
     version = __versionstr__,
-    author = "Honza Král",
-    author_email = "honza.kral@gmail.com",
+    author = "Crag Wolfe",
+    author_email = "crag@primer.ai",  # With apologies to honza.kral@gmail.com
     packages=find_packages(
         where='.',
         exclude=('test_elasticsearch6*', )
